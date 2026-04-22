@@ -1,0 +1,16 @@
+<nav>
+                <%if (user) {%>
+                    <h1><a href="/">Ink Well</a></h1>
+                <div class="login-btn">
+                    <!-- <input type="button" name="" id="" class="nav-btn" value="Post"> -->
+                     <a href="/post" role="button" class="nav-btn">Post</a>
+                    <a href="/myposts" role="button" class="nav-btn my-post">My posts</a>
+                     <a href="/logout" role="button" class="nav-btn2">Log out</a>
+                </div>
+               <% }else{ %>
+                <h1>Ink Well</h1>
+                <div class="login-btn">
+                     <a href="/login" role="button" class="nav-btn2">Login</a>
+                </div>
+                <%}%>
+            </nav>

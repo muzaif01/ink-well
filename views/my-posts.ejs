@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="navbar">
+       <%- include("partials/navbar.ejs") %>
+    </div>
+    <div class="posts-align">
+        <div class="inner-block">
+            <% if (posts.length>0) { %>
+            <div class="my-post_margin">   
+            
+            <% posts.forEach(element=>{ %>
+                <div class="mypost-data">
+                    <h3><%=element.title%></h3><br>
+                    <p><%=element.type%></p><br>
+                    <p><%=element.description%></p><br>
+                    <p><%=element.author%></p><br>
+        </div>
+        <div class="mypost-btn">
+            <form action="/edit/<%=element.id%>" method="get">
+            <button class="mypost-update">UPDATE</button>
+            </form>
+             <form action="/delete/<%=element.id%>" method="post">
+            <input type="submit" value="Delete" class="mypost-delete">
+            </form>
+        </div>
+        <hr>
+        </div> 
+        <%});%>
+    <%}else{%>
+        <h3>No posts to show</h3>
+    <%}%>
+    </div>
+    </div>
+
+    <script src="/index.js"></script>
+    
+</body>
+
+</html>
