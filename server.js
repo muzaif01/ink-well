@@ -19,11 +19,8 @@ const saltround=10;
 
 const {Pool}=pg
 const db=new Pool({
-  user: process.env.users,
-  host: process.env.host,
-  database: process.env.database,
-  password: process.env.password,
-  port: process.env.port
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
 });
 
 app.use(session({
