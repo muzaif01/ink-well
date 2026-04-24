@@ -80,7 +80,7 @@ if(edit_cancel){
 }
 
 //code for update of post
-
+if(update){
 update.addEventListener("click",()=>{
   let input=document.querySelector(".input-text");
   let topic=document.querySelector(".select-data");
@@ -118,6 +118,7 @@ update.addEventListener("click",()=>{
   sendata();
   };
 });
+};
 
 //code for showing data on home-page
 
@@ -145,6 +146,10 @@ if (displaydata) {
    displaydata.addEventListener("keyup",()=>{
 
     let searched=displaydata.value.toLowerCase();
+      if(searched.trim()===""){
+         displayposts(data);
+         return;
+      };
       
     let filtered=data.filter(post=>
       post.title.toLowerCase().includes(searched) ||
